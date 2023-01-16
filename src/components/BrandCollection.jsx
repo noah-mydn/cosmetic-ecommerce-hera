@@ -1,5 +1,5 @@
-import { ExpandCircleDown, ShoppingCart } from '@mui/icons-material'
-import { Card,CardActionArea, CardContent, CardMedia, Divider, IconButton, Skeleton, Typography, useMediaQuery, Box, Grow } from '@mui/material'
+import { ExpandCircleDown, KeyboardArrowUp, ShoppingCart } from '@mui/icons-material'
+import { Card,CardActionArea, CardContent, CardMedia, Divider, IconButton, Skeleton, Typography, useMediaQuery, Box, Grow, Fab } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -12,25 +12,9 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.down('md'));
     const isLaptop = useMediaQuery(theme.breakpoints.down('lg'));
-
-    const productItemCount = products.length;
-    const [numberofProductShown, setNumberofProductShown] = React.useState(12);
-    const [isEnded, setIsEnded] = React.useState(false);
     const [selectedItem,setSelectedItem] = React.useState(null);
 
     const navigate = useNavigate();
-
-    const showMoreProducts = () => {
-        if (numberofProductShown + 5 <= productItemCount) {
-            setNumberofProductShown(numberofProductShown+10);
-           
-        }
-
-        else {
-            setNumberofProductShown(productItemCount);
-            setIsEnded(true);
-        }
-    }
 
     //Show Product Details
 
@@ -65,6 +49,8 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
          }
      }
 
+     getTitle(code);
+
     // React.useEffect(()=> {
     //     dispatch(fetchMakeup());        
     // })
@@ -73,10 +59,50 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
      const handleAddToCart = (product) => {
         dispatch(addToCart({...product, cartQuantity:1}));
     }
+ //Scroll To Top
+ function handleScrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+    //ScrollToSeeMore
+const productRefs = React.useRef([]);
+const [itemsToShow, setItemsToShow] = React.useState(12);
+React.useEffect(() => {
+    // Get the last item from the filteredProducts array
+    const lastItemRef = productRefs.current[productRefs.current.length - 1];
 
-     getTitle(code);
-     console.log(loadingStatus);
-     console.log(products);
+    // Create the observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setItemsToShow((prev) => prev + 6);
+            }
+        });
+    }, { threshold: 0.05 });
+    
+
+    // Observe the last item
+    if (lastItemRef) {
+        observer.observe(lastItemRef);
+    }
+
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+            setItemsToShow((prev) => prev + 6);
+        }
+    });
+    
+
+    return () => {
+        //disconnect observer
+        window.removeEventListener("scroll", () => {
+          if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+              setItemsToShow((prev) => prev + 6);
+          }
+      });
+      };
+}, [products]);
+
+     //console.log(products);
 
   return (
     <React.Fragment>
@@ -92,10 +118,11 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
         justifyContent='space-around'
         flexWrap='wrap'
         alignItems='center'>
-            {products?.slice(0,numberofProductShown).map((product)=> {
+            {products?.slice(0,itemsToShow).map((product)=> {
                 return (
                     <Grow in={!loadingStatus} timeout={1500}>
                         <Card 
+                        ref={el => productRefs.current.push(el)}
                         key={product.id}
                         elevation={4}
                         sx={{width:'150px',
@@ -151,16 +178,18 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
             })}
         </Box>
 
-        {(!isEnded && !loadingStatus && products.length>=1) &&
-        <Box  sx={{
-                display:'flex',
-                justifyContent:'center',
-                alignItems:'center',
-        }}>
-            <IconButton onClick={showMoreProducts}>
-                <ExpandCircleDown sx={{color:theme.palette.primary.dark}} fontSize='large'/>
-            </IconButton>
-        </Box>}
+        <Fab size='medium'
+        color='#555'
+        aria-label="scroll to top"
+        onClick={handleScrollToTop}
+        sx={{
+            position: "fixed",
+            bottom: "1em",
+            right: "1em",
+        }}
+        >
+             <KeyboardArrowUp color='secondary'/>
+        </Fab>
     </React.Fragment>
   )
 }

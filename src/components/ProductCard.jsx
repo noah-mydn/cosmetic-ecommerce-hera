@@ -1,26 +1,28 @@
-import { Search, ShoppingCart } from '@mui/icons-material'
-import { Box, Card, CardActionArea, CardContent, CardMedia, Divider, Grow, IconButton, InputAdornment, Skeleton, TextField, Typography, useMediaQuery } from '@mui/material'
+import { KeyboardArrowUp, Search, ShoppingCart} from '@mui/icons-material'
+import {Fab, Box, Card, CardActionArea, CardContent, CardMedia, Divider, Grow, IconButton, InputAdornment, Skeleton, TextField, Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addToCart } from '../rtk/app/features/cartSlice'
 import { theme } from '../style/theme'
-import { ScrollToTopElement} from '../style/scrollToTop';
 import { Loader } from './Loader';
 
 
 export const ProductCard = ({title,products,loadingStatus}) => {
-
+    //ScreenSize
     const isTablet = useMediaQuery(theme.breakpoints.down('md'));
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isLaptop = useMediaQuery(theme.breakpoints.down('lg'));
-
+    //For addToCart
     const cartItems = useSelector((state)=>state.cart.cartItems);
     const [selectedItem, setSelectedItem] = React.useState(null);
     const navigate = useNavigate();
+    //ForSearchQuery
     const [searchQuery, setSearchQuery] = React.useState('');
     const [filteredProducts, setFilteredProducts] = React.useState(products);
-    //const [isEnded, setIsEnded] = React.useState(false);
+    //For scrollToSeeMore
+    const [itemsToShow, setItemsToShow] = React.useState(12);
+
     const inputRef = React.useRef(null);
     const dispatch = useDispatch();
 
@@ -37,7 +39,7 @@ export const ProductCard = ({title,products,loadingStatus}) => {
         console.log(product);
     }
     
-    console.log(loadingStatus)
+    //console.log(loadingStatus)
 
     //SearchBar component
     React.useEffect(() => {
@@ -94,6 +96,51 @@ export const ProductCard = ({title,products,loadingStatus}) => {
         </form>
   );
 
+  //Scroll To Top
+  function handleScrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+//ScrollToSeeMore
+const productRefs = React.useRef([]);
+React.useEffect(() => {
+    // Get the last item from the filteredProducts array
+    const lastItemRef = productRefs.current[productRefs.current.length - 1];
+
+    // Create the observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setItemsToShow((prev) => prev + 6);
+            }
+        });
+    }, { threshold: 0.05 });
+    
+
+    // Observe the last item
+    if (lastItemRef) {
+        observer.observe(lastItemRef);
+    }
+
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+            setItemsToShow((prev) => prev + 6);
+        }
+    });
+    
+
+    return () => {
+        //disconnect observer
+        window.removeEventListener("scroll", () => {
+          if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+              setItemsToShow((prev) => prev + 6);
+          }
+      });
+      };
+}, [filteredProducts]);
+
+
+
   return (
     <Box sx={{paddingTop:'4em'}}>
         <Divider variant='middle' sx={{
@@ -122,10 +169,11 @@ export const ProductCard = ({title,products,loadingStatus}) => {
 
                  
         {
-        filteredProducts?.map((product)=> {
+        filteredProducts?.slice(0,itemsToShow).map((product)=> {
             return (
                 <Grow in={!loadingStatus} timeout={1500}>
                     <Card 
+                    ref={el => productRefs.current.push(el)}
                     key={product.id}
                     elevation={4}
                     sx={{width:'150px',
@@ -198,8 +246,21 @@ export const ProductCard = ({title,products,loadingStatus}) => {
         
         </Box>
 
+        <Fab
+        color='#555'
+        aria-label="scroll to top"
+        onClick={handleScrollToTop}
+        sx={{
+            position: "fixed",
+            bottom: "1em",
+            right: "1em",
+        }}
+        >
+             <KeyboardArrowUp color='secondary'/>
+        </Fab>
+
         
-        {ScrollToTopElement}
+        
     </Box>
   )
 }

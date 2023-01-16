@@ -3,7 +3,7 @@ import { Box, Button, Chip, IconButton, Rating, Tooltip, Typography, useMediaQue
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { addToCart, decreaseCartQuantity, increaseCartQuantity } from '../rtk/app/features/cartSlice';
+import { addToCart} from '../rtk/app/features/cartSlice';
 import { theme } from '../style/theme'
 
 

@@ -7,6 +7,7 @@ import { Cancel, ShoppingBasket } from '@mui/icons-material'
 import { theme } from '../style/theme';
 import { MAIN_MENU } from '../data/navData'
 import { Link, useNavigate } from 'react-router-dom';
+import { Email, Facebook, Instagram, Phone, Twitter, WhatsApp } from '@mui/icons-material'
 
 
 const CustomNavMobile = styled(Box)({
@@ -58,6 +59,29 @@ export const MobileNav = ({totalQuantity}) => {
                 </StyledListItemBtn>
             ))}
             <Divider/>
+                <Box color='white' display='flex' flexDirection='column' bgcolor={theme.palette.primary.main}
+                        pt={2} pl={2} pb={2}>
+                            <Typography variant='h6' fontWeight='bold' gutterBottom>
+                                Contact
+                            </Typography>
+                            <Typography variant='body2' gutterBottom>
+                                221b Baker St, London NW1 6XE, <br/>United Kingdom
+                            </Typography>
+                            <Typography variant='body2' display='inline-flex' gutterBottom>
+                                <Phone/>&nbsp;&nbsp;012-34-6789
+                            </Typography>
+
+                            <Typography variant='body2' display='inline-flex' gutterBottom>
+                                <Email/>&nbsp;&nbsp;hera@liverpool.com
+                            </Typography>
+
+                            <Box display='flex' pt={1} justifyContent='flex-start'>
+                                <Facebook sx={{marginRight:'3px', pointer:'cursor', fontSize:25}}/>
+                                <Instagram sx={{marginRight:'3px', pointer:'cursor', fontSize:25}}/>
+                                <Twitter sx={{marginRight:'3px', pointer:'cursor', fontSize:25}}/>
+                                <WhatsApp sx={{marginRight:'3px', pointer:'cursor', fontSize:25}}/>
+                            </Box>
+                </Box>
         </Box>
     )
 

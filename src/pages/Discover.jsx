@@ -6,9 +6,9 @@ import { Search } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 
 const brands = [
-        {url:'../assets/images/elf.jpg', title:'Annabelle',id:3,code:'annabelleSelector'},
+        {url:'../assets/images/annabelle.jpg', title:'Annabelle',id:3,code:'annabelleSelector'},
         {url:'../assets/images/covergirl.webp', title:'Covergirl',id:1,code:'covergirlSelector'},        
-        {url:'../assets/images/clinque.jpg', title:'Glossier', id:0,code:'glossierSelector'},
+        {url:'../assets/images/glossier.jpg', title:'Glossier', id:0,code:'glossierSelector'},
         {url:'../assets/images/loreal.jpg', title:"L'oreal",id:4,code:"lorealSelector"},
         {url:'../assets/images/maybelline.jpg', title:'Maybelline',id:5,code:"maybellineSelector"},
         {url:'../assets/images/nyx.jpg', title:'NYX',id:6,code:'nyxSelector'},

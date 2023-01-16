@@ -33,6 +33,7 @@ export const Home = () => {
 
     const matchScreen = useMediaQuery(theme.breakpoints.down('md'))
     const mobileScreen = useMediaQuery(theme.breakpoints.down('sm'))
+
     let productImage = [
         {
             url:'../assets/images/slider_1.jpg',
@@ -102,7 +103,7 @@ export const Home = () => {
                 }}
 
                 activeIndicatorIconButtonProps={{
-                    style: {
+                    style: {                   
                         color: theme.palette.primary.main 
                     }
                 }}
@@ -173,7 +174,7 @@ export const Home = () => {
                         <Box component='img' src={service.url}
                         mt={mobileScreen ? '1.5em' : ''}
                         alt='available services' width='45%' height='100px'/>
-                        <Typography variant='h6' color='secondary' gutterBottom textAlign={mobileScreen ? 'center' : ''}>
+                        <Typography variant='body1' color='secondary' gutterBottom textAlign={mobileScreen ? 'center' : ''}>
                             {service.name}
                         </Typography>
                         <Typography variant='body2' color='#555' textAlign= 'center'

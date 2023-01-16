@@ -223,8 +223,8 @@ console.log(cartItems);
 
         }}>
           <Box display='flex' justifyContent='center' pt={4}>
-              <Box component='img' src='../assets/images/emptyCart.svg' alt='empty cart'
-              sx={{width:'30%', padding:'1em',}}/>
+              <Box component='img' src='../assets/images/empty.png' alt='empty cart'
+              sx={{width:'35%', padding:'1em',}}/>
           </Box>
           
             <Typography variant={isTablet ? 'subtitle1' : 'h5'} color={theme.palette.primary.light} textAlign='center' gutterBottom pt={4}
