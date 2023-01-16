@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+
+
+@font-face {
+  font-family: "LogoFont";  
+  src: local("Qumpellkano12"),
+    url("./fonts/Qumpellkano12.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "AdsFont";  
+  src: local("ParisVanJavaBold"),
+    url("./fonts/ParisVanJavaBold.ttf") format("truetype");
+}
+
+.nav_link,.mobile_nav_link {
+  text-decoration: none;
+  padding:0.5em;
+  font-family: 'Noto Sans';
+  font-size: 18px;
+}
+
+.nav_link {
+  color:white;
+}
+
+.nav_link:hover {
+  color:#1D1A31;
+}
+
+.mobile_nav_link {
+  color: #1D1A31;
+}
+
+/* -- quantity box -- */
+
+.quantity-value, .quantity-value-details {
+ 
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.quantity-value {
+   width: 10%;
+}
+
+.quantity-value-details {
+  width:20%;
+}
+
+.quantity-value:focus, .quantity-value-details:focus {
+  border: 3px solid #555;
+  }
+
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+ 
+.bounding-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.bounding-loader > div {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin: 12em 0.3em;
+  background-color: cadetblue;
+  opacity: 1;
+  animation: bouncing-loader 0.5s infinite alternate;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-last-child() {
+  animation-delay: 0.4s;
+}
+
+@keyframes bouncing-loader {
+  to {    
+    transform: translateY(-12px);
+    background-color: rgb(74, 100, 122);
+  }
+}
+
+
+ .search-bar-container {
+  width: auto;
+  margin-top: 2em;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3em;
+ }
+
+
+ @media screen and (max-width:1080px) {
+  .quantity-value {
+    width: 15%;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .quantity-value {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .quantity-value {
+    width: 25%;
+  }
+
+  .quantity-value-details {
+    width:35%;
+  }
+
+  .search-bar-container {
+    justify-content: center;
+    padding-right:0;
+  }
+}
