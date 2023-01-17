@@ -35,6 +35,7 @@ export const MobileNav = ({totalQuantity}) => {
 
     const drawerNav = (
         <Box sx={{width: isMobile ? '100vw' : '50vw',
+                height:'auto', overflow:'auto'
                  }}>
             <Box sx={{
                 padding:'0.5em 0.8em',
@@ -59,8 +60,10 @@ export const MobileNav = ({totalQuantity}) => {
                 </StyledListItemBtn>
             ))}
             <Divider/>
-                <Box color='white' display='flex' flexDirection='column' bgcolor={theme.palette.primary.main}
-                        pt={2} pl={2} pb={2}>
+                <Box color='white' display='flex' py={2}
+                flexDirection='column' bgcolor={theme.palette.primary.main}
+                
+                        pt={2} pl={2} pb={2} height='calc(100vh - 350px)'>
                             <Typography variant='h6' fontWeight='bold' gutterBottom>
                                 Contact
                             </Typography>
@@ -103,6 +106,7 @@ export const MobileNav = ({totalQuantity}) => {
                     onClick={toggleNavigation}
                 >
                     <Drawer
+                    sx={{height:'fit-content'}}
                     variant='temporary'
                     anchor='left'
                     open={open}

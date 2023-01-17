@@ -2,12 +2,12 @@
 =======================================
 
 ### Description
-    -----------
+    
 
 Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics from different brands.
 
 ### Features
-    --------
+    
 
 -  Showcases the services and products that the website offers.
 -  Allows users to browse through different categories of cosmetics.
@@ -19,11 +19,12 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
 -  Includes a search function for improved user usability.
 -  Allows users to add items to a cart and manipulate the quantity as desired.
 -  Users can also clear their entire cart if desired.
+-  Products inside the carts are also stored on browser's local storage so refreshing won't interrupt the cart
 -  Note: checkout is not implemented.
 
 
 ### Used Web Technologies
-    ---------------------
+    
     -   HTML5
     -   CSS3
     -   [JavaScript](https://www.javascript.com/)
@@ -32,7 +33,7 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
     -   [Material-UI](https://mui.com/)
 
 ### Attributions
-    ------------
+    
 
 #### Media Images/Icons
 
@@ -69,11 +70,11 @@ Toast Message from [React-Toastify] (https://www.npmjs.com/package/react-toastif
 
 
 ### Screenshots
-    ------------
+    
 
-![Desktop View] ('/assets/images/screenshot_one.png)
-![Mobile View] ('/assets/images/screenshot_two.png)
+![Desktop View] ('/public/assets/images/screenshot_one.png)
+![Mobile View] ('/public/assets/images/screenshot_two.png)
 
 
 ### Demo
-    ----
+    [Hera] (https://hera-cosmetics.netlify.app/)
