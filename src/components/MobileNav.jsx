@@ -24,6 +24,8 @@ const StyledListItemBtn = styled(ListItemButton)({
 
 export const MobileNav = ({totalQuantity}) => {
 
+    const isTablet = useMediaQuery(theme.breakpoints.down('md'));
+
     const [open,setOpen] = React.useState(false);
     const toggleNavigation = () => {
         setOpen(!open);
@@ -35,13 +37,14 @@ export const MobileNav = ({totalQuantity}) => {
 
     const drawerNav = (
         <Box sx={{width: isMobile ? '100vw' : '50vw',
-                height:'auto', overflow:'auto'
+                height:'100%', overflow:'auto'
                  }}>
             <Box sx={{
                 padding:'0.5em 0.8em',
                 display:'flex',
                 justifyContent:'space-between'
-            }}>
+            }}
+            >
                 <Typography variant='h4' color={theme.palette.primary.main}
                 fontFamily='LogoFont'>
                             Hera
@@ -60,10 +63,10 @@ export const MobileNav = ({totalQuantity}) => {
                 </StyledListItemBtn>
             ))}
             <Divider/>
-                <Box color='white' display='flex' py={2}
+                <Box color='white' display='flex' py={3}
                 flexDirection='column' bgcolor={theme.palette.primary.main}
                 
-                        pt={2} pl={2} pb={2} height='calc(100vh - 350px)'>
+                         pl={2} height={isMobile ? 'calc(100vh - 425px)' :  'auto'}>
                             <Typography variant='h6' fontWeight='bold' gutterBottom>
                                 Contact
                             </Typography>
@@ -106,12 +109,16 @@ export const MobileNav = ({totalQuantity}) => {
                     onClick={toggleNavigation}
                 >
                     <Drawer
-                    sx={{height:'fit-content'}}
                     variant='temporary'
                     anchor='left'
                     open={open}
                     onClose={toggleNavigation}
                     onOpen={toggleNavigation}
+                    PaperProps={{
+                        sx:{
+                            height: isMobile ?'100vh' : 'fit-content'
+                        }
+                    }}
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
                       }}>

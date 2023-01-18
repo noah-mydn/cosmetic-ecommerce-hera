@@ -1,5 +1,6 @@
 import { Email, ExpandMore, Facebook, Instagram, Phone, Twitter, WhatsApp } from '@mui/icons-material'
-import { Accordion, AccordionDetails, AccordionSummary, Grid, List, ListItem, ListItemText, Typography, useMediaQuery } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Grid, List, 
+     ListItemText, Typography, useMediaQuery } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import { theme } from '../style/theme'
@@ -10,7 +11,7 @@ export const Footer = () => {
     const phoneScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box pt={8} name='footer'>
+    <Box pt={8} name='footer' height='auto'>
         <Grid display='grid'
               gridTemplateColumns={matchScreen ? '1fr 1fr 1fr auto' : phoneScreen? '1fr' : '1fr 1fr'}
               flexWrap='wrap'

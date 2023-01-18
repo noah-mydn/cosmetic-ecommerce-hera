@@ -19,13 +19,14 @@ import { CartProduct } from './components/CartProduct';
 import { ToastContainer } from 'react-toastify';
 import { getTotal } from './rtk/app/features/cartSlice';
 import { ProductDetails } from './components/ProductDetails';
+import LongMenu from './components/Menu';
 
 
 function App() {
 
   const [openBrand, setOpenBrand] = React.useState(null);
   const cart = useSelector(state=>state.cart);
-  const totalQuantity = useSelector(state=>state.cart.totalQuantity);
+  //const totalQuantity = useSelector(state=>state.cart.totalQuantity);
 
   const dispatch = useDispatch();
 
@@ -58,6 +59,7 @@ function App() {
             <Route path='/product_details' element={<ProductDetails/>}/>
          </Routes>
          <Footer/>
+         
       </BrowserRouter>   
     </ThemeProvider>
    

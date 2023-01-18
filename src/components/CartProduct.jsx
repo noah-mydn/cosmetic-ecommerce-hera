@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Add, ArrowBackIos, Remove } from '@mui/icons-material'
-import { Box,Button,IconButton,Paper,Table,TableBody,TableCell,tableCellClasses,TableContainer,TableHead,TableRow,TextField,Typography, useMediaQuery } from '@mui/material'
+import { Box,Button,IconButton,Paper,Table,TableBody,TableCell,tableCellClasses,
+  TableContainer,TableHead,TableRow,Typography, useMediaQuery } from '@mui/material'
 import React from 'react'
 import {useDispatch, useSelector } from 'react-redux'
 import { Link} from 'react-router-dom'
@@ -215,7 +216,8 @@ console.log(cartItems);
         {cartItems.length===0 && 
         <Paper elevation={0} sx={{
           width: isMobile ? '90%' : isTablet ? '70%' : isLaptop ? '60%' : '50%',
-          margin:'3em auto',
+          height:'70vh',
+          margin:'0 auto',
           display:'flex',
           flexDirection:'column',
           alignItems:'center',

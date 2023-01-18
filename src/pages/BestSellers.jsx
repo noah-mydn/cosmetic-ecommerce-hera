@@ -4,7 +4,6 @@ import { ProductCard } from '../components/ProductCard'
 import { Alert, AlertTitle } from '@mui/material';
 import { BestSellerSelector, errorSelector, loadingSelector } from '../rtk/app/selectors';
 import { Box } from '@mui/system';
-import { theme } from '../style/theme';
 
 export const BestSellers = () => {
 
@@ -37,7 +36,7 @@ export const BestSellers = () => {
     <Box width='100%'>
        
        { (!bestsellers || (error && !loading))  ?
-        <Box pt={10} mt={4} display='flex' justifyContent='center' alignItems='center'>
+        <Box pt={10} mt={4} display='flex' justifyContent='center' alignItems='center' height='70vh'>
           <Alert severity="error" sx={{margin:'3em auto', padding:'3em'}}
           variant='standard'>
             <AlertTitle>Error</AlertTitle>

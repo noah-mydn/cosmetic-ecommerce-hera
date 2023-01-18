@@ -36,7 +36,7 @@ export const Eyes = () => {
     <Box width='100%'>
        
        { (error && !loading)  ?
-        <Box pt={10} mt={4} display='flex' justifyContent='center' alignItems='center'>
+        <Box pt={10} mt={4} display='flex' justifyContent='center' alignItems='center' height='70vh'>
           <Alert severity="error" sx={{margin:'3em auto', padding:'3em'}}
           variant='standard'>
             <AlertTitle>Error</AlertTitle>

@@ -20,7 +20,7 @@ const cartSlice = createSlice({
             if(cartItemIndex >= 0) {
                 state.cartItems[cartItemIndex].cartQuantity += action.payload.cartQuantity;
                 
-                if(action.payload.cartQuantity!=0) {
+                if(action.payload.cartQuantity!==0) {
                     toast.info(`${action.payload.name} is added to the cart again!`,
                     {position:'top-right'})
                 }
