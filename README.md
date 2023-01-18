@@ -70,9 +70,9 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
 
 ##### Animation and Toast 
 
-Carousel from [Material-UI-Carousel](https://www.npmjs.com/package/react-material-ui-carousel)
-Card Animation from [Material-UI-Transistions](https://mui.com/material-ui/transitions/)
-Toast Message from [React-Toastify](https://www.npmjs.com/package/react-toastify)
+- Carousel from [Material-UI-Carousel](https://www.npmjs.com/package/react-material-ui-carousel)
+- Card Animation from [Material-UI-Transistions](https://mui.com/material-ui/transitions/)
+- Toast Message from [React-Toastify](https://www.npmjs.com/package/react-toastify)
 
 
 ### Screenshots
