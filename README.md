@@ -4,7 +4,7 @@
 ### Description
     
 
-Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics from different brands.
+Hera Cosmetics is a fully-functional e-commerce website built using React library. The website utilizes the power of makeupAPI to gather a wide range of cosmetic products and provide users with a seamless browsing experience. The data management of the website is handled by Redux Toolkit, ensuring efficient data flow throughout the application. The website is designed to be fully responsive, providing optimal viewing experience on multiple devices. The styling of the website is done using Material UI, giving the website a modern and elegant look.
 
 ### Features
     
@@ -32,6 +32,7 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
 * MATERIAL-UI
 * REDUX
 * REDUX-TOOLKIT
+* Makeup API
 
 ### Attributions
     
