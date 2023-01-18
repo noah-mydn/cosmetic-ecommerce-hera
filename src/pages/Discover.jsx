@@ -80,7 +80,7 @@ export const Discover = ({updateOpenBrand}) => {
                     },
                 }
             }}>
-                <Typography variant={isMobile ? 'h4' : 'h3' } color={theme.palette.secondary.dark}>
+                <Typography variant={isMobile ? 'h5' : 'h4' } color={theme.palette.secondary.dark}>
                     Brands Collection
                 </Typography>
 

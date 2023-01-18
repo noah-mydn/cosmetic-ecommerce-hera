@@ -13,10 +13,16 @@ export const BrandCollection = ({products,loadingStatus,code}) => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.down('md'));
     const isLaptop = useMediaQuery(theme.breakpoints.down('lg'));
-    const [filteredProducts,setFilteredProducts] = React.useState(products);
+    const [isClicked, setIsClicked] = React.useState(false);
+    
+    const [filteredProducts, setFilteredProducts] = React.useState([]);
     const [selectedItem,setSelectedItem] = React.useState(null);
-
     const navigate = useNavigate();
+
+    React.useEffect(() => {
+        setFilteredProducts(products);
+      }, [products]);
+      
 
     //Show Product Details
 
@@ -98,9 +104,9 @@ React.useEffect(() => {
           }
       });
       };
-}, [products]);
+}, [filteredProducts]);
 
-     //console.log(products)
+     console.log(products)
      
      //Selector
      const categories = [{name:'All', key:'all'}, 
@@ -116,6 +122,7 @@ React.useEffect(() => {
     const ITEM_HEIGHT = 48;
 
     const handleShowFilterProducts = (key) => {
+        setIsClicked(true);
         let selectedProductType;
 
         if(key==='all') {
@@ -181,7 +188,7 @@ React.useEffect(() => {
 }
 
     console.log("filter:",filteredProducts);
-     
+    
 
   return (
     <React.Fragment>
@@ -192,7 +199,7 @@ React.useEffect(() => {
         </Divider>
         <Selector/>
         {loadingStatus && <Loader/>}
-        {(filteredProducts.length===0 && !loadingStatus) &&
+        {(filteredProducts.length===0 && !loadingStatus && isClicked) &&
             <Box height='calc(100vh - 420px)' display='flex'
             justifyContent='center' alignItems='center'>
                 <Typography variant='subtitle2' color='primary'
@@ -215,7 +222,7 @@ React.useEffect(() => {
                             maxWidth:'250px',
                                 //    background:!loadingStatus ? theme.palette.primary.main : 'none',
                                 margin:'2em 1em',
-                                flex:isMobile ? '0 0 40%' : isTablet ? '0 0 35%' : isLaptop ? '0 0 30%' : '0 0 20%'}}>
+                                flex:isMobile ? '0 0 60%' : isTablet ? '0 0 35%' : isLaptop ? '0 0 30%' : '0 0 20%'}}>
                                     
                             <CardActionArea sx={{position:'relative',padding:'0.5em'}}
                         >

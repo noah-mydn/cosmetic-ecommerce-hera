@@ -129,10 +129,12 @@ export const MobileNav = ({totalQuantity}) => {
                     fontSize:'1em'}}
                     />
                 </IconButton>
-                <Typography variant='h4' color={theme.palette.primary.main}
-                fontFamily='LogoFont'>
-                            Hera
-                </Typography>
+                <Link to='/' className='nav_link'>
+                    <Typography variant='h4' color={theme.palette.primary.main}
+                    fontFamily='LogoFont'>
+                                Hera
+                    </Typography>
+                </Link>
                 <IconButton size='large' onClick={()=>navigate('/display_cart')}>
                     <Badge badgeContent={totalQuantity} color="error">
                         <ShoppingBasket sx={{color:theme.palette.primary.main, fontSize:'1em'}}/>
