@@ -192,7 +192,7 @@ React.useEffect(() => {
         </Divider>
         <Selector/>
         {loadingStatus && <Loader/>}
-        {filteredProducts.length===0 &&
+        {(filteredProducts.length===0 && !loadingStatus) &&
             <Box height='calc(100vh - 420px)' display='flex'
             justifyContent='center' alignItems='center'>
                 <Typography variant='subtitle2' color='primary'
