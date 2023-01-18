@@ -227,7 +227,7 @@ export const Footer = () => {
         <Box width='100%' py={2} bgcolor='#28282b' color='#fff' textAlign='center' 
         fontFamily={theme.palette.fontFamily} fontSize={12}>
             Copyright &copy;2023 All Rights Reserved | Designed by 
-            <a href='https://github.com/noah_mydn' style={{textDecoration:'none', 
+            <a href='https://github.com/noah-mydn' style={{textDecoration:'none', 
             color:'yellow'}}> May Yadanar </a>
         </Box>
     </Box>

@@ -19,7 +19,6 @@ import { CartProduct } from './components/CartProduct';
 import { ToastContainer } from 'react-toastify';
 import { getTotal } from './rtk/app/features/cartSlice';
 import { ProductDetails } from './components/ProductDetails';
-import LongMenu from './components/Menu';
 
 
 function App() {
@@ -59,7 +58,6 @@ function App() {
             <Route path='/product_details' element={<ProductDetails/>}/>
          </Routes>
          <Footer/>
-         
       </BrowserRouter>   
     </ThemeProvider>
    

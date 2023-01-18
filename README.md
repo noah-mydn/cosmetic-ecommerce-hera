@@ -25,12 +25,13 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
 
 ### Used Web Technologies
     
-    -   HTML5
-    -   CSS3
-    -   [JavaScript](https://www.javascript.com/)
-    -   [React](https://reactjs.org/)
-    -   [Redux Tookit](https://redux-toolkit.js.org/)
-    -   [Material-UI](https://mui.com/)
+* HTML5
+* CSS3
+* JAVASCRIPT
+* REACT
+* MATERIAL-UI
+* REDUX
+* REDUX-TOOLKIT
 
 ### Attributions
     
@@ -62,7 +63,7 @@ Hera Cosmetics is an online ecommerce website that sells a variety of cosmetics 
 ##### Carousel images
 
 - [Image-1](https://www.pexels.com/photo/nyx-lipstick-beside-eye-shadow-palette-234220/)
-- [Image-2](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQKPJl8CPclZk832KjKupX_qm16gXFPfWPJwtWIhcUtApbYNphT)q=tbn:ANd9GcQKPJl8CPclZk832KjKupX_qm16gXFPfWPJwtWIhcUtApbYNphT
+- [Image-2](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQKPJl8CPclZk832KjKupX_qm16gXFPfWPJwtWIhcUtApbYNphT)
 - [Image-3](https://www.pexels.com/photo/loreal-products-beside-the-red-hair-dryer-10644997/)
 - [Image-4](https://images.pexels.com/photos/2535913/pexels-photo-2535913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
 
@@ -75,10 +76,11 @@ Toast Message from [React-Toastify](https://www.npmjs.com/package/react-toastify
 
 
 ### Screenshots
-    
-![Desktop View] (./public/assets/images/screenshot_one.png)
-![Mobile View] (./public/assets/images/screenshot_two.png)
+![Desktop View](/public/assets/images/screenshot_one.png)
+![Mobile View](/public/assets/images/screenshot_two.png)
 
 
-### Demo
-    [Hera](https://hera-cosmetics.netlify.app/)
+
+### Deployment
+
+[Hera](https://hera-cosmetics.netlify.app/)
